@@ -1,0 +1,39 @@
+﻿@page
+@model LibraryProject.Pages.Users.IndexModel
+@{
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Kimlik Numarası</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.IdentificationNumber</td>
+                <td>
+                    <a href="/Users/Update/@item.Id" type="button" class="btn btn-primary">Güncelle
+                    </a>
+                </td>
+                <td>
+                    <a asp-page="/Users/Index" asp-page-handler="Delete" asp-route-id="@item.Id" type=" button" class="btn btn-danger">
+                         Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Users/Create" type="button" class="btn btn-primary">
+    Kullanıcı Ekle
+</a>

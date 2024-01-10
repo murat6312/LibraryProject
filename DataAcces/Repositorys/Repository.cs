@@ -1,0 +1,38 @@
+﻿using DataAcces.Context;
+
+namespace DataAcces.Repositorys
+{
+    public class Repository<T> : IRepository<T> where T : class
+    {
+        private readonly LibraryContext _libraryContext;
+
+        public Repository(LibraryContext libraryContext)
+        {
+            _libraryContext = libraryContext;
+        }
+
+        public async Task Add(T entity)
+        {
+            _libraryContext.Set<T>().Add(entity);
+            _libraryContext.SaveChanges();
+        }
+
+        public async Task Delete(T entity)
+        {
+            _libraryContext.Set<T>().Remove(entity);
+            _libraryContext.SaveChanges();
+        }
+
+        public async Task Update(T entity)
+        {
+            _libraryContext.Set<T>().Update(entity);
+            _libraryContext.SaveChanges();
+
+        }
+
+        public IQueryable<T> GetQueryable()
+        {
+            return _libraryContext.Set<T>().AsQueryable();
+        }
+    }
+}

@@ -1,0 +1,26 @@
+﻿@page "{id:long}"
+@model LibraryProject.Pages.Users.UpdateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+
+    <div class="form-group">
+        <input type="hidden" name="User.Id" asp-for="User.Id" value="@Model.User.Id" class="form-control">
+        <label>İsmi</label>
+        <input name="User.Name" asp-for="User.Name" value="@Model.User.Name" class="form-control" placeholder="Yayıncı İsmi Giriniz">
+        <span asp-validation-for="User.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Kimlik numarası</label>
+        <input name="User.IdentificationNumber" asp-for="User.IdentificationNumber" value="@Model.User.IdentificationNumber" class="form-control" placeholder="Yayıncı İsmi Giriniz">
+        <span asp-validation-for="User.IdentificationNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kullanıcı Güncelle</button>
+</form>

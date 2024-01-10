@@ -1,0 +1,80 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style >
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 2em 0;
+    }
+
+    .feature {
+        text-align: center;
+        padding: 1em;
+        margin: 1em;
+        flex: 0 1 calc(30% - 2em);
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    cta {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 4em 0;
+    }
+
+        cta h2 {
+            margin-bottom: 1em;
+        }
+
+    button {
+        display: inline-block;
+        padding: 1em 2em;
+        text-decoration: none;
+        color: white;
+        background-color: #e8491d;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        button:hover {
+            background-color: #333;
+        }
+
+       </style>
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h2>Kapsamlı Kütüphane</h2>
+                <p>Geniş bir kitap koleksiyonu ile sizlere hizmet veriyoruz.</p>
+            </div>
+            <div class="feature">
+                <h2>Kolay Erişim</h2>
+                <p>Kitapları kolayca bulabilir ve ödünç alabilirsiniz.</p>
+            </div>
+            <div class="feature">
+                <h2>Ücretsiz Üyelik</h2>
+                <p>Ücretsiz üye olarak kütüphanemizin tüm imkanlarından yararlanabilirsiniz.</p>
+            </div>
+        </div>
+    </section>

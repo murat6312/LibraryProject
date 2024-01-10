@@ -1,0 +1,25 @@
+﻿@page
+@model LibraryProject.Pages.Authors.CreateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+
+    <div class="form-group">
+        <label>Yazarın İsmi</label>
+        <input name="AuthorDto.FullName" asp-for="AuthorDto.FullName"  class="form-control" placeholder="Yazar ismi  giriniz">
+        <span asp-validation-for="AuthorDto.FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Yazar Hakkında</label>
+        <input name="AuthorDto.About" asp-for="AuthorDto.About"  class="form-control" placeholder="Yazar hakkında açıklama giriniz">
+        <span asp-validation-for="AuthorDto.About" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Yazar Ekle</button>
+</form>

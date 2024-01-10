@@ -1,0 +1,47 @@
+﻿@page
+@using LibraryProject.Pages.Books
+@model IndexModel
+@{
+}
+
+@TempData["succes"]
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Kitap Adı</th>
+      <th scope="col">Isbn</th>
+      <th scope="col">Yazar Adı</th>
+      <th scope="col">YayınEvi</th>
+      <th scope="col">Güncelle</th>
+      <th scope="col">Sil</th>
+
+    </tr>
+  </thead>
+  <tbody>
+        @foreach(var item in Model.BookList)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Isbn</td>
+                <td>@item.Author.FullName</td>
+                <td>@item.Publisher.Name</td>
+                <td>
+                    <a
+                         href="/Books/Update/@item.Id" type="button" class="btn btn-primary">Güncelle
+                    </a>
+                </td>
+                <td>
+                    <a asp-page="/Books/Index" asp-page-handler="Delete" asp-route-id="@item.Id" type=" button" class="btn btn-danger">
+                        Sil
+                    </a>
+                </td>
+            </tr>
+        }   
+  </tbody>
+</table>
+
+<a asp-page="/Books/Create">
+    <button type="button" class="btn btn-success">Kitap Ekle</button>
+</a>

@@ -1,0 +1,39 @@
+﻿@page
+@model LibraryProject.Pages.BookRents.IndexModel
+@{
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Kitap ismi</th>
+            <th scope="col">Kiralayan İsmi</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Kitap teslim alındı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BookRent)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Book.Name</td>
+                <td>@item.User.Name</td>
+                <td>
+                    <a href="/BookRents/Update/@item.Id" type="button" class="btn btn-primary">Güncelle
+                    </a>
+                </td>
+                <td>
+                    <a asp-page="/BookRents/Index" asp-page-handler="Delete" asp-route-id="@item.Id" type=" button" class="btn btn-danger">
+                        Kitap teslim alındı
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/BookRents/Create" type="button" class="btn btn-primary">
+    Kitap Kirala
+</a>

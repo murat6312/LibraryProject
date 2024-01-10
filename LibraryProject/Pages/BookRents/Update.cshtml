@@ -1,0 +1,38 @@
+﻿@page "{id:long}"
+@model LibraryProject.Pages.BookRents.UpdateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+
+<form method="post">
+
+<div class="form-group">
+
+      <input type="hidden" name="BookRent.Id" asp-for="BookRent.Id" class="form-control">
+
+    <label>Kullanılar</label>
+        <select name="BookRent.UserId" class="form-control">
+        @foreach (var item in @Model.UserListItem)
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    </select>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Kitaplar</label>
+            <select name="BookRent.BookId" class="form-control">
+            @foreach (var item in @Model.BookListItem)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+        <button type="submit" class="btn btn-primary">Kirala</button>
+
+</div>
+</form>

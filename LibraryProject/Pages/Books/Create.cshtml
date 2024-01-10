@@ -1,0 +1,49 @@
+﻿@page
+@model LibraryProject.Pages.Books.CreateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+    <div class="form-group">
+        <label>Kitap ismi</label>
+        <input name="BookUpdateModel.Name" asp-for="BookUpdateModel.Name" type="text" class="form-control" placeholder="Kitap ismi giriniz">
+        <span asp-validation-for="BookUpdateModel.Name" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label>Isbn</label>
+        <input name="BookUpdateModel.Isbn" asp-for="BookUpdateModel.Isbn" type="number" class="form-control" placeholder="Isbn numarasını giriniz">
+        <span asp-validation-for="BookUpdateModel.Isbn" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Kitap açıklması</label>
+        <input name="BookUpdateModel.Description" asp-for="BookUpdateModel.Description" type="text" class="form-control" placeholder="Kitap açıklması giriniz">
+        <span asp-validation-for="BookUpdateModel.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Yayıncılar</label>
+        <select name="BookUpdateModel.PublisherId" class="form-control">
+            @foreach (var item in @Model.PublisherListItem)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </select>
+        </div>
+        <div class="form-group">
+            <label >Yazarlar</label>
+        <select name="BookUpdateModel.AuthorId" class="form-control">
+                @foreach (var item in @Model.AuthorListItem)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+
+            </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Kitap Ekle</button>
+</form>

@@ -1,0 +1,36 @@
+﻿@page
+@model LibraryProject.Pages.Publishers.IndexModel
+@{
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">YayınEvi Adı</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Publishers)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>
+                    <a href="/Publishers/Update/@item.Id" type="button" class="btn btn-primary">Güncelle
+                    </a>
+                </td>
+                <td>
+                    <a asp-page="/Publishers/Index" asp-page-handler="Delete" asp-route-id="@item.Id" type=" button" class="btn btn-danger">
+                         Sil
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Publishers/Create" type="button" class="btn btn-primary">Yayıncı Ekle
+</a>

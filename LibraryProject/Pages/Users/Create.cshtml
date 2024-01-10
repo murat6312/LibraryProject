@@ -1,0 +1,24 @@
+﻿@page
+@model LibraryProject.Pages.Users.CreateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+    <div class="form-group">
+        <label>İsim</label>
+        <input name="User.Name" asp-for="User.Name" class="form-control" placeholder="İsmi Giriniz">
+        <span asp-validation-for="User.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Kimlik numarası</label>
+        <input name="User.IdentificationNumber" asp-for="User.IdentificationNumber" class="form-control" placeholder="Kimlik numarası Giriniz">
+        <span asp-validation-for="User.IdentificationNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+</form>

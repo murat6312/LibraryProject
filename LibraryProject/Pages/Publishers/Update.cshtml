@@ -1,0 +1,22 @@
+﻿@page "{id:long}"
+@model LibraryProject.Pages.Publishers.UpdateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+
+    <div class="form-group">
+        <input type="hidden" name="PublisherDto.Id" asp-for="PublisherDto.Id" value="@Model.PublisherDto.Id" class="form-control">
+        <label>Yayıncı ismi</label>
+        <input name="PublisherDto.Name" asp-for="PublisherDto.Name" value="@Model.PublisherDto.Name" class="form-control" placeholder="Yayıncı İsmi Giriniz">
+        <span asp-validation-for="PublisherDto.Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yayıncıyı Güncelle</button>
+</form>

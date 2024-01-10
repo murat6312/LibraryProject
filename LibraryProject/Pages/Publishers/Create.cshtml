@@ -1,0 +1,21 @@
+﻿@page
+@model LibraryProject.Pages.Publishers.CreateModel
+@{
+}
+
+<style>
+    .form-group {
+        margin-bottom: 20px
+    }
+</style>
+
+<form method="post">
+
+    <div class="form-group">
+        <label>Yayıncı ismi</label>
+        <input name="PublisherDto.Name" asp-for="PublisherDto.Name" class="form-control" placeholder="Yayıncı İsmi Giriniz">
+        <span asp-validation-for="PublisherDto.Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yayıncıyı ekle</button>
+</form>
